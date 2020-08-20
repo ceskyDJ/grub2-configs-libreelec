@@ -1,0 +1,23 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+
+# Windows
+menuentry "Windows 10" --class windows --class os $menuentry_id_option 'osprober-efi-CE56-A237' {
+    insmod part_gpt
+    insmod fat
+    if [ x$feature_platform_search_hint = xy ]; then
+      search --no-floppy --fs-uuid --set=root CE56-A237
+    else
+      search --no-floppy --fs-uuid --set=root CE56-A237
+    fi
+    chainloader /efi/Microsoft/Boot/bootmgfw.efi
+}
+
+# LibreELEC
+menuentry "LibreELEC" --class libreelec --class gnu-linux --class gnu --class os {
+	search --set=root --label LibreELEC-System
+	linux /KERNEL boot=LABEL=LibreELEC-System disk=LABEL=LibreELEC-Data quiet
+}
