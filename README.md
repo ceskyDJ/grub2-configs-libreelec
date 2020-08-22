@@ -2,6 +2,8 @@
 
 This repository contains files of my grub2 configuration with LibreELEC menu entires (manual config). It has special submenu for "advanced options" and "recovery" menu entries.
 
+![Preview](https://github.com/ceskyDJ/grub2-configs-libreelec/blob/master/Preview.gif)
+
 **Example output (/boot/grub2/grub2.cnf):**
 ```
 #
